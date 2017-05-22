@@ -1,0 +1,30 @@
+Compare Functionality requirement
+
+MainFlow
+
+1. GUI Text Area에 upload된 두 개의 파일의 Long Common Subsequence(이하 LCS)들을 one-line 단위로 찾는다.
+2. LCS에서 공통된 문자열들이 같은 열에 위치하도록 각각의Text Area에 개행을 추가한다.
+3. 두 개의 Text를 line-by-line 으로 비교를 하면서 두 line의 LCS들을 찾는다.
+4. 두 Text에서 LCS 부분과 그 이외의 부분의 color를 바꿔서 Text Area에 표시해 준다.
+
+Precondition
+- 두 Text Area에 모두 파일이 로드되어 있다.
+
+Postcondition
+- 두 Text 파일의 공통된 부분다 다른 부분이 색깔로 구분되어 표시되어 있다.
+
+Alternative condition
+- 두 Text Area에 모두 파일이 로드되어 있지 않다면(하나의 파일만 로드되었거나 둘 다 로드되지 않았을때),
+  비활성화 한다.
+
+Glossary
+
+
+- Long Common Subsequence(LCS) : 
+	최장 공통 부분 문자열로 기존 substring과 비교하면 substring은 연속된 부분 문자열이고,
+	subsequence는 연속적이지 않은 부분 문자열이다.
+	예) "Software Engineering"라는 문자열에서 연속된 부분 문자열인 "tware"은 substring이고,
+	    연속전으로 이어지지는 않았지만 순서는 맞는 "Sfgrng"는 subsequence가 된다.
+
+- Text Area : GUI상에서 로드된 Text 파일의 내용이 표시되는 영역
+	
