@@ -22,7 +22,10 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 	while(fscnaf_s(fp,"%s",name.sizeof(rule))!=EOF){
-		fscanf_s(fp,"%c>%s",LT[i],TNT[][i]);//
+		
+		LT = (char*)malloc(sizeof(char)*i);
+		fscanf_s(fp,"%c>%s",LT[i],TNT[i]);
+		i++//
 	}
 	
 	
