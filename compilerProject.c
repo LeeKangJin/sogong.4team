@@ -5,16 +5,29 @@ typedef struct _table {
 
 table FindFirst(table rule, char *TNT);
 table FindFllow(table rule, table *FirstTable, char *TNT, char *LT);
-int main()
+int main(int argc, char* argv[])
 {
+	FILE *fp=0;
+	fp = fopen_s(&fp,argv[2],"r");
 	char *i = (char*)malloc(sizeof(char));
 	char *LT = (char*)malloc(sizeof(char)); // termianl
 	char *TNT = (char*)malloc(sizeof(char)); //non -terminal
-	//ÆÄÀÏ ÀĞ±â
-	int Ltnum = 5;//terminal ÀÇ °³¼ö ¿¹½Ã¿ë
-	int Ntnum = 4;//nonterminalÀÇ °³¼ö ¿¹½Ã¿ë
-
-	//data ÀĞ¾ú´Ù°í °¡Á¤ÇÏ°í ½ÇÇà
+	//íŒŒì¼ ì½ê¸°
+	int Ltnum = 5;//terminal ì˜ ê°œìˆ˜ ì˜ˆì‹œìš©
+	int Ntnum = 4;//nonterminalì˜ ê°œìˆ˜ ì˜ˆì‹œìš©
+	char rule[2]={0,};
+	int i=0;
+	if(fp==NULL){
+		printf("No text file");
+		return 0;
+	}
+	while(fscnaf_s(fp,"%s",name.sizeof(rule))!=EOF){
+		fscanf_s(fp,"%c>%s",LT[i],TNT[][i]);//
+	}
+	
+	
+	
+	//data ì½ì—ˆë‹¤ê³  ê°€ì •í•˜ê³  ì‹¤í–‰
 	
 	table *FirstTable;
 	table *FllowTable;
@@ -42,11 +55,11 @@ int main()
 
 
 
-	//ÆÄÀÏ ³»¿ë dataBase¸¸µé¾î¼­ º¸°ü
+	//íŒŒì¼ ë‚´ìš© dataBaseë§Œë“¤ì–´ì„œ ë³´ê´€
 
-	// dataBase·Î table »ı¼º
+	// dataBaseë¡œ table ìƒì„±
 
-	// table ÀÌ¿ë first, follow ,tableprint, action, goto, exit ÇÔ¼ö ¸¸µé±â
+	// table ì´ìš© first, follow ,tableprint, action, goto, exit í•¨ìˆ˜ ë§Œë“¤ê¸°
 	if (i == "FIRST") {}
 	else if (i == "FOLLOW") {}
 	else if (i == "TABLE") {}
@@ -56,7 +69,7 @@ int main()
 	else if (i[0] == "I") {}
 
 
-
+	fclose(fp);
 	return 0;
 
 }
