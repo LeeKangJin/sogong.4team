@@ -1,37 +1,64 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
 typedef struct _table {
 	char *set;
 }table;
 
 table FindFirst(table rule, char *TNT);
 table FindFllow(table rule, table *FirstTable, char *TNT, char *LT);
+
 int main(int argc, char* argv[])
 {
-	FILE *fp=0;
-	fp = fopen_s(&fp,argv[2],"r");
-	char *i = (char*)malloc(sizeof(char));
-	char *LT = (char*)malloc(sizeof(char)); // termianl
-	char *TNT = (char*)malloc(sizeof(char)); //non -terminal
-	//파일 읽기
-	int Ltnum = 5;//terminal 의 개수 예시용
-	int Ntnum = 4;//nonterminal의 개수 예시용
-	char rule[2]={0,};
-	int i=0;
-	if(fp==NULL){
+	FILE *fp = 0;
+	fp = fopen(argv[1], "r");
+	char *i;
+	char *LT = (char*)malloc(sizeof(char)); ; // termianl
+	char TNT[100][100];//non -terminal malloc으로 수정하기
+	char tempR[100] = { NULL, };
+	char tempC;
+	int  tempRN;
+	int ruleNum=0;
+	int rulesize;
+
+	if (fp == NULL) {
 		printf("No text file");
 		return 0;
 	}
-	while(fscnaf_s(fp,"%s",name.sizeof(rule))!=EOF){
-		
-		LT = (char*)malloc(sizeof(char)*i);
-		fscanf_s(fp,"%c>%s",LT[i],TNT[i]);
-		i++//
+	else {
+	//실험용
+
+		while ((fscanf(fp, "%s\n", tempR)) != EOF)
+
+			fscanf(fp, "%s\n", tempR);
+		    
+			printf("%s\n", rulesize);
 	}
+
+
+
+
 	
+	while (fscanf(fp,"%c%d\n",tempC,tempRN) != EOF) {
+		
+		fscanf(fp, "%c>%s\n", tempC, tempR);
+		LT[ruleNum] = tempC;
+		*TNT[ruleNum] = tempR;
+		ruleNum++;
+		realloc(LT, sizeof(char)*ruleNum);
+		// TNT realloc 할것
+
+		//룰 개수 세기
+	}
+	//rule 개수만큼 할당
+
+
 	
-	
+
+
+
 	//data 읽었다고 가정하고 실행
-	
+
 	table *FirstTable;
 	table *FllowTable;
 	table *GotoTable;
@@ -40,19 +67,14 @@ int main(int argc, char* argv[])
 	table *ruleTable;
 
 	//for (int i = 0; i < a; i++)
-	ruleTable = (table*)malloc(sizeof(table)*10);
+	ruleTable = (table*)malloc(sizeof(table) * 10);
 	ruleTable->set = (char*)malloc(sizeof(char) * 10);
 
-	ruleTable[0].set[0] = "E";
-	ruleTable[0].set[1] = "E";
-	ruleTable[0].set[2] = "+";
-	ruleTable[0].set[0] = "T";
+	FirstTable = (table*)malloc(sizeof(table));
+	FirstTable->set = (char*)malloc(sizeof(char));
 
-	FirstTable = (table*)malloc(sizeof(table)*Ltnum);
-	FirstTable->set = (char*)malloc(sizeof(char)*Ntnum);
-
-	FllowTable = (table*)malloc(sizeof(table)*Ltnum);
-	FllowTable->set = (char*)malloc(sizeof(char)*Ntnum);
+	FllowTable = (table*)malloc(sizeof(table));
+	FllowTable->set = (char*)malloc(sizeof(char));
 
 
 
@@ -70,7 +92,7 @@ int main(int argc, char* argv[])
 	else if (i == "GOTO") {}
 	else if (i == "exit") {}
 	else if (i[0] == "I") {}
-
+	
 
 	fclose(fp);
 	return 0;
